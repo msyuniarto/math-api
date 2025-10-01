@@ -1,6 +1,21 @@
 const MathBasic = {
-  add: () => {
+  add: (...args) => {
+    if (args.length !== 2) {
+      throw new Error('fungsi add hanya menerima dua paramater');
+    }
 
+    // cara assign variable
+    // const a = args[0];
+    // const b = args[1];
+
+    // cara simple assign variable
+    const [a, b] = args;
+
+    if (typeof a !== 'number' || typeof b !== 'number') {
+      throw new Error('fungsi hanya menerima parameter number');
+    }
+
+    return a + b;
   },
   substract: () => {
 
