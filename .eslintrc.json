@@ -1,0 +1,9 @@
+{
+  // 1. Lingkungan Global (Variabel Global seperti 'describe', 'require', dll.)
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2021": true,
+    "jest": true 
+  }
+}
