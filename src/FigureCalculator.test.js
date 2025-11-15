@@ -120,8 +120,8 @@ describe('A calculateTrianglePerimeter function', () => {
 
     // Assert
     expect(result).toEqual(12); // a + b + c
-    expect(spyAdd).toHaveBeenCalledWith(a, b);
-    expect(spyAdd).toHaveBeenCalledWith(7, c);
+    expect(spyAdd).toHaveBeenCalledWith(b, c);
+    expect(spyAdd).toHaveBeenCalledWith(a, 9);
   });
 });
 
@@ -147,17 +147,19 @@ describe('A calculateTriangleArea function', () => {
     const base = 3;
     const height = 4;
     const spyMultiply = jest.spyOn(MathBasic, 'multiply');
+    const spyDivide = jest.spyOn(MathBasic, 'divide');
     const figureCalculator = new FigureCalculator(MathBasic);
 
     // CLEAR spy sebelum test
     spyMultiply.mockClear();
+    spyDivide.mockClear();
 
     // Action
     const result = figureCalculator.calculateTriangleArea(base, height);
 
     // Assert
-    expect(result).toEqual(6); // 0.5 * base * height
+    expect(result).toEqual(6); // (base * height) / 2
     expect(spyMultiply).toHaveBeenCalledWith(base, height);
-    expect(spyMultiply).toHaveBeenCalledWith(12, 0.5); // 0.5 * base * height
+    expect(spyDivide).toHaveBeenCalledWith(12, 2); // (base * height) / 2
   });
 });
